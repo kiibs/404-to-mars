@@ -1,119 +1,203 @@
 <!DOCTYPE html>
 <!-- index.html -->
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>404 — Mars Not Found</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="stars" aria-hidden="true"></div>
-  <main class="stage" role="main">
-    <div class="card" role="region" aria-labelledby="title">
-      <div class="visual" aria-hidden="true">
-        <div class="scene">
-
-          <!-- dotted flight path -->
-          <svg class="path" viewBox="0 0 800 600" preserveAspectRatio="none" aria-hidden="true">
-            <path class="dotted" d="M120 480 C260 320, 420 260, 620 120" />
-          </svg>
-
-          <!-- astronaut (SVG) -->
-          <div class="astronaut" id="astronaut">
-            <svg viewBox="0 0 200 240" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-              <g>
-                <path d="M26 200 C40 170, 60 140, 88 120" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="2" stroke-dasharray="3 4" />
-                <ellipse cx="100" cy="160" rx="38" ry="50" fill="#eef6ff" opacity="0.95" />
-                <rect x="70" y="110" width="60" height="36" rx="9" fill="#f4f7fb" stroke="#dfe8f6" />
-                <rect x="110" y="120" width="26" height="50" rx="6" fill="#dde9ff" />
-                <circle cx="100" cy="78" r="34" fill="#e9f2ff" stroke="#c9dffb" />
-                <circle cx="100" cy="78" r="27" fill="#04243b" />
-                <g class="shine"><rect x="64" y="52" width="72" height="36" rx="18" /></g>
-                <g fill="#ffcfb3" opacity="0.85">
-                  <circle cx="88" cy="168" r="3" />
-                  <circle cx="112" cy="168" r="3" />
-                </g>
-                <line x1="84" y1="40" x2="72" y2="26" stroke="#e6f1ff" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="72" cy="26" r="3" fill="#ffdf6a" />
-              </g>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>404 — Mars Not Found</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <div class="stars" aria-hidden="true"></div>
+    <main class="stage" role="main">
+      <div class="card" role="region" aria-labelledby="title">
+        <div class="visual" aria-hidden="true">
+          <div class="scene">
+            <!-- dotted flight path -->
+            <svg
+              class="path"
+              viewBox="0 0 800 600"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path class="dotted" d="M120 480 C260 320, 420 260, 620 120" />
             </svg>
-          </div>
 
-          <!-- Mars area -->
-          <div class="mars-wrap" id="marsWrap">
-            <div class="mars" id="mars" role="img" aria-label="Mars">
-              <div class="crater c1"></div>
-              <div class="crater c2"></div>
-              <div class="crater c3"></div>
-            </div>
-            <div class="dust" id="dust">
-              <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
-                <g fill="rgba(255,255,255,0.06)">
-                  <circle cx="22" cy="34" r="3"/>
-                  <circle cx="48" cy="20" r="2"/>
-                  <circle cx="86" cy="44" r="2.5"/>
-                  <circle cx="120" cy="28" r="2"/>
-                  <circle cx="112" cy="90" r="3"/>
-                  <circle cx="68" cy="110" r="2"/>
-                  <circle cx="30" cy="96" r="2.2"/>
-                  <circle cx="140" cy="62" r="1.6"/>
+            <!-- astronaut (SVG) -->
+            <div class="astronaut" id="astronaut">
+              <svg
+                viewBox="0 0 200 240"
+                width="100%"
+                height="100%"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    d="M26 200 C40 170, 60 140, 88 120"
+                    fill="none"
+                    stroke="rgba(255,255,255,0.04)"
+                    stroke-width="2"
+                    stroke-dasharray="3 4"
+                  />
+                  <ellipse
+                    cx="100"
+                    cy="160"
+                    rx="38"
+                    ry="50"
+                    fill="#eef6ff"
+                    opacity="0.95"
+                  />
+                  <rect
+                    x="70"
+                    y="110"
+                    width="60"
+                    height="36"
+                    rx="9"
+                    fill="#f4f7fb"
+                    stroke="#dfe8f6"
+                  />
+                  <rect
+                    x="110"
+                    y="120"
+                    width="26"
+                    height="50"
+                    rx="6"
+                    fill="#dde9ff"
+                  />
+                  <circle
+                    cx="100"
+                    cy="78"
+                    r="34"
+                    fill="#e9f2ff"
+                    stroke="#c9dffb"
+                  />
+                  <circle cx="100" cy="78" r="27" fill="#04243b" />
+                  <g class="shine">
+                    <rect x="64" y="52" width="72" height="36" rx="18" />
+                  </g>
+                  <g fill="#ffcfb3" opacity="0.85">
+                    <circle cx="88" cy="168" r="3" />
+                    <circle cx="112" cy="168" r="3" />
+                  </g>
+                  <line
+                    x1="84"
+                    y1="40"
+                    x2="72"
+                    y2="26"
+                    stroke="#e6f1ff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <circle cx="72" cy="26" r="3" fill="#ffdf6a" />
                 </g>
               </svg>
             </div>
+
+            <!-- Mars area -->
+            <div class="mars-wrap" id="marsWrap">
+              <div class="mars" id="mars" role="img" aria-label="Mars">
+                <div class="crater c1"></div>
+                <div class="crater c2"></div>
+                <div class="crater c3"></div>
+              </div>
+              <div class="dust" id="dust">
+                <svg
+                  viewBox="0 0 160 160"
+                  width="160"
+                  height="160"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g fill="rgba(255,255,255,0.06)">
+                    <circle cx="22" cy="34" r="3" />
+                    <circle cx="48" cy="20" r="2" />
+                    <circle cx="86" cy="44" r="2.5" />
+                    <circle cx="120" cy="28" r="2" />
+                    <circle cx="112" cy="90" r="3" />
+                    <circle cx="68" cy="110" r="2" />
+                    <circle cx="30" cy="96" r="2.2" />
+                    <circle cx="140" cy="62" r="1.6" />
+                  </g>
+                </svg>
+              </div>
+            </div>
+
+            <div class="bubble" id="bubble">
+              "Approaching Mars... wait—where did it go?"
+            </div>
+          </div>
+        </div>
+
+        <div class="content">
+          <h1 id="title">404 — <span class="glitch">Mars Not Found</span></h1>
+          <p class="lead">
+            Our brave astronaut followed the flight plan — but Mars appears to
+            be missing from its orbit. Either it packed up early or you landed
+            on the wrong page.
+          </p>
+
+          <div class="actions">
+            <a href="/" class="btn" id="homeBtn" title="Return to homepage"
+              >⟵ Return to Earth</a
+            >
+            <button
+              class="btn secondary"
+              id="retryBtn"
+              title="Try to locate Mars again"
+            >
+              Scan for Mars
+            </button>
           </div>
 
-          <div class="bubble" id="bubble">"Approaching Mars... wait—where did it go?"</div>
-
+          <div class="meta">
+            Error code: <span id="err">404</span> · Location: deep space ·
+            Module: mission-control
+          </div>
+          <div class="missing-note" id="note">
+            Tip: Try refreshing or head back to the site's homepage.
+          </div>
         </div>
       </div>
+    </main>
 
-      <div class="content">
-        <h1 id="title">404 — <span class="glitch">Mars Not Found</span></h1>
-        <p class="lead">Our brave astronaut followed the flight plan — but Mars appears to be missing from its orbit. Either it packed up early or you landed on the wrong page.</p>
+    <script>
+      const mars = document.getElementById("mars");
+      const dust = document.getElementById("dust");
+      const bubble = document.getElementById("bubble");
+      const retry = document.getElementById("retryBtn");
+      const note = document.getElementById("note");
 
-        <div class="actions">
-          <a href="/" class="btn" id="homeBtn" title="Return to homepage">⟵ Return to Earth</a>
-          <button class="btn secondary" id="retryBtn" title="Try to locate Mars again">Scan for Mars</button>
-        </div>
+      function makeMarsVanish() {
+        if (mars.classList.contains("missing")) {
+          bubble.textContent =
+            "Still not here. Did we check the right star chart?";
+          mars.animate(
+            [
+              { transform: "translateX(0)" },
+              { transform: "translateX(-6px)" },
+              { transform: "translateX(6px)" },
+              { transform: "translateX(0)" },
+            ],
+            { duration: 420, iterations: 1 }
+          );
+          return;
+        }
 
-        <div class="meta">Error code: <span id="err">404</span> · Location: deep space · Module: mission-control</div>
-        <div class="missing-note" id="note">Tip: Try refreshing or head back to the site's homepage.</div>
-      </div>
-    </div>
-  </main>
-
-  <script>
-    const mars = document.getElementById('mars');
-    const dust = document.getElementById('dust');
-    const bubble = document.getElementById('bubble');
-    const retry = document.getElementById('retryBtn');
-    const note = document.getElementById('note');
-
-    function makeMarsVanish(){
-      if(mars.classList.contains('missing')){
-        bubble.textContent = 'Still not here. Did we check the right star chart?';
-        mars.animate([
-          { transform: 'translateX(0)' },
-          { transform: 'translateX(-6px)' },
-          { transform: 'translateX(6px)' },
-          { transform: 'translateX(0)' }
-        ], { duration: 420, iterations: 1 });
-        return;
+        mars.classList.add("missing");
+        setTimeout(() => dust.classList.add("show"), 220);
+        bubble.textContent = "No planet detected. Marking Mars as missing.";
+        note.textContent = "If found, please return to Mission Control.";
+        const live = document.createElement("div");
+        live.setAttribute("aria-live", "polite");
+        live.style.position = "absolute";
+        live.style.left = "-9999px";
+        live.textContent = "Mars reported missing.";
+        document.body.appendChild(live);
       }
 
-      mars.classList.add('missing');
-      setTimeout(()=> dust.classList.add('show'), 220);
-      bubble.textContent = 'No planet detected. Marking Mars as missing.';
-      note.textContent = 'If found, please return to Mission Control.';
-      const live = document.createElement('div');
-      live.setAttribute('aria-live','polite');
-      live.style.position='absolute'; live.style.left='-9999px'; live.textContent = 'Mars reported missing.';
-      document.body.appendChild(live);
-    }
-
-    retry.addEventListener('click', makeMarsVanish);
-    window.addEventListener('load', ()=>{ setTimeout(makeMarsVanish, 1400); });
-  </script>
-</body>
+      retry.addEventListener("click", makeMarsVanish);
+      window.addEventListener("load", () => {
+        setTimeout(makeMarsVanish, 1400);
+      });
+    </script>
+  </body>
 </html>
