@@ -82,38 +82,23 @@
       </div>
     </div>
   </main>
+<script>
+  const mars = document.getElementById('mars');
+  const meteor = document.createElement('div');
+  meteor.classList.add('meteor');
+  document.querySelector('.mars-wrap').appendChild(meteor);
 
-  <script>
-    const mars = document.getElementById('mars');
-    const dust = document.getElementById('dust');
-    const bubble = document.getElementById('bubble');
-    const retry = document.getElementById('retryBtn');
-    const note = document.getElementById('note');
+  function meteorStrike() {
+    meteor.style.animation = 'meteorFall 1.5s ease-in forwards';
+    setTimeout(() => {
+      mars.style.animation = 'marsExplosion 1.4s ease-out forwards';
+      document.getElementById('bubble').textContent = 'Impact detected — Mars destroyed!';
+    }, 1200);
+  }
 
-    function makeMarsVanish(){
-      if(mars.classList.contains('missing')){
-        bubble.textContent = 'Still not here. Did we check the right star chart?';
-        mars.animate([
-          { transform: 'translateX(0)' },
-          { transform: 'translateX(-6px)' },
-          { transform: 'translateX(6px)' },
-          { transform: 'translateX(0)' }
-        ], { duration: 420, iterations: 1 });
-        return;
-      }
-
-      mars.classList.add('missing');
-      setTimeout(()=> dust.classList.add('show'), 220);
-      bubble.textContent = 'No planet detected. Marking Mars as missing.';
-      note.textContent = 'If found, please return to Mission Control.';
-      const live = document.createElement('div');
-      live.setAttribute('aria-live','polite');
-      live.style.position='absolute'; live.style.left='-9999px'; live.textContent = 'Mars reported missing.';
-      document.body.appendChild(live);
-    }
-
-    retry.addEventListener('click', makeMarsVanish);
-    window.addEventListener('load', ()=>{ setTimeout(makeMarsVanish, 1400); });
-  </script>
+  window.addEventListener('load', () => {
+    setTimeout(meteorStrike, 1800);
+  });
+</script>
 </body>
 </html>
