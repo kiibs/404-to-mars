@@ -182,6 +182,7 @@
           return;
         }
 
+<<<<<<< HEAD
         mars.classList.add("missing");
         setTimeout(() => dust.classList.add("show"), 220);
         bubble.textContent = "No planet detected. Marking Mars as missing.";
@@ -200,4 +201,30 @@
       });
     </script>
   </body>
+=======
+        <div class="meta">Error code: <span id="err">404</span> · Location: deep space · Module: mission-control</div>
+        <div class="missing-note" id="note">Tip: Try refreshing or head back to the site's homepage.</div>
+      </div>
+    </div>
+  </main>
+<script>
+  const mars = document.getElementById('mars');
+  const meteor = document.createElement('div');
+  meteor.classList.add('meteor');
+  document.querySelector('.mars-wrap').appendChild(meteor);
+
+  function meteorStrike() {
+    meteor.style.animation = 'meteorFall 1.5s ease-in forwards';
+    setTimeout(() => {
+      mars.style.animation = 'marsExplosion 1.4s ease-out forwards';
+      document.getElementById('bubble').textContent = 'Impact detected — Mars destroyed!';
+    }, 1200);
+  }
+
+  window.addEventListener('load', () => {
+    setTimeout(meteorStrike, 1800);
+  });
+</script>
+</body>
+>>>>>>> 09193a2e6247289e4aeecf9acdb313950ce75a35
 </html>
