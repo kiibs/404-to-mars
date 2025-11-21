@@ -4,24 +4,23 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   background: #020314;
   overflow: hidden;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   color: white;
   height: 100vh;
   width: 100vw;
 }
 
-/* ===== STAR CANVAS ===== */
+/* ===== STARFIELD ===== */
 #stars {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: -2;
 }
 
 /* ===== CONTENT ===== */
@@ -31,27 +30,24 @@ body {
   width: 100%;
   text-align: center;
   padding: 0 20px;
+  z-index: 10;
 }
-
 .title {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 10px;
 }
-
 .subtitle {
   font-size: 1.2rem;
   opacity: 0.8;
   margin-bottom: 30px;
 }
-
 .buttons {
   margin-top: 20px;
   display: flex;
   justify-content: center;
   gap: 20px;
 }
-
 .btn {
   padding: 12px 22px;
   border-radius: 8px;
@@ -61,23 +57,19 @@ body {
   text-decoration: none;
   transition: 0.3s;
 }
-
 .btn.primary {
   background: #ff3b3b;
   color: white;
 }
-
 .btn.primary:hover {
   background: #ff5656;
   transform: scale(1.05);
 }
-
 .btn.secondary {
   background: transparent;
   border: 2px solid white;
   color: white;
 }
-
 .btn.secondary:hover {
   background: white;
   color: black;
@@ -87,27 +79,39 @@ body {
 /* ===== MARS ===== */
 .mars {
   position: absolute;
-  width: 180px;
-  height: 180px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, #ff8c4a, #b3351d);
-  bottom: 20%;
-  left: 15%;
+  bottom: 15%;
+  left: 10%;
   transition: 0.4s;
   z-index: 2;
   overflow: hidden;
 }
-
 .crater {
   position: absolute;
-  background: rgba(0,0,0,0.25);
+  background: rgba(0, 0, 0, 0.25);
   border-radius: 50%;
 }
-
-.c1 { width: 40px; height: 40px; top: 30%; left: 20%; }
-.c2 { width: 25px; height: 25px; top: 60%; left: 55%; }
-.c3 { width: 30px; height: 30px; top: 20%; left: 65%; }
-
+.c1 {
+  width: 60px;
+  height: 60px;
+  top: 25%;
+  left: 20%;
+}
+.c2 {
+  width: 40px;
+  height: 40px;
+  top: 65%;
+  left: 55%;
+}
+.c3 {
+  width: 50px;
+  height: 50px;
+  top: 15%;
+  left: 65%;
+}
 .mars.explode {
   transform: scale(0.3);
   opacity: 0;
@@ -117,64 +121,182 @@ body {
 /* ===== METEOR ===== */
 .meteor {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   background: #d9d9d9;
   border-radius: 50%;
-  top: -80px;
+  top: -100px;
   left: 75%;
   transform: rotate(45deg);
   z-index: 3;
 }
-
 .fire {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, #ffbb00, #ff3b00);
+  border-radius: 50%;
+  filter: blur(6px);
+}
+.f1 {
+  top: 50px;
+  left: -10px;
+}
+.f2 {
+  top: 55px;
+  left: 15px;
+}
+.f3 {
+  top: 60px;
+  left: 0px;
+}
+
+/* ===== FRAGMENTS ===== */
+.fragment {
   position: absolute;
   width: 20px;
   height: 20px;
-  background: radial-gradient(circle, #ffbb00, #ff3b00);
   border-radius: 50%;
-  filter: blur(4px);
+  z-index: 4;
+  background: #ff4500;
 }
-
-.f1 { top: 40px; left: -5px; }
-.f2 { top: 45px; left: 10px; }
-.f3 { top: 50px; left: 0px; }
-
-.meteor.fall {
-  animation: meteorFall 1.5s ease-in forwards;
-}
-
-@keyframes meteorFall {
-  0% { transform: translate(0, 0) rotate(45deg); }
-  100% { transform: translate(-500px, 900px) rotate(45deg); }
-}
-
-/* ===== EXPLOSION ===== */
-.explosion {
+.planet-frag {
   position: absolute;
-  width: 250px;
-  height: 250px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,200,150,1), rgba(255,80,0,0.6), rgba(0,0,0,0));
-  bottom: 17%;
-  left: 12%;
+  background: #b3351d;
+  z-index: 4;
+}
+
+/* ===== SHOCKWAVE ===== */
+#shockwave {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 50, 0, 0.2);
+  pointer-events: none;
   opacity: 0;
-  transform: scale(0.2);
+  z-index: 1;
   transition: 0.4s;
-  filter: blur(6px);
+}
+
+/* ===== SPACESHIP DETALLE ===== */
+#spaceship {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 120px;
+  height: 60px;
+  z-index: 0;
+  transform-origin: center center;
+  animation: floatShip 6s ease-in-out infinite;
+}
+#spaceship .body {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(to bottom, #666, #aaa);
+  border-radius: 50% / 40%;
   z-index: 1;
 }
-
-.explosion.show {
-  opacity: 1;
-  transform: scale(1);
-  filter: blur(2px);
-  animation: pulse 1s infinite alternate;
+#spaceship .cockpit {
+  position: absolute;
+  top: -5px;
+  left: 35px;
+  width: 50px;
+  height: 30px;
+  background: rgba(0, 200, 255, 0.8);
+  border-radius: 50% / 40%;
+  border: 2px solid rgba(0, 255, 255, 0.5);
+  z-index: 2;
 }
-
-@keyframes pulse {
-  from { transform: scale(1); opacity: 1; }
-  to { transform: scale(1.2); opacity: 0.6; }
+#spaceship .wing-left,
+#spaceship .wing-right {
+  position: absolute;
+  top: 15px;
+  width: 30px;
+  height: 10px;
+  background: linear-gradient(to right, #333, #555);
+  border-radius: 5px;
+  z-index: 0;
+}
+#spaceship .wing-left {
+  left: -20px;
+  transform: rotate(-20deg);
+}
+#spaceship .wing-right {
+  right: -20px;
+  transform: rotate(20deg);
+}
+#spaceship .engine {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 15px;
+  background: #222;
+  border-radius: 5px;
+  overflow: visible;
+  z-index: 0;
+}
+#spaceship .engine::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 20px;
+  background: radial-gradient(circle, #ff0 0%, #f00 60%, transparent 100%);
+  border-radius: 50%;
+  animation: flame 0.3s linear infinite alternate;
+}
+@keyframes flame {
+  0% {
+    transform: translateX(-50%) scaleY(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) scaleY(1.5);
+    opacity: 0.7;
+  }
+}
+#spaceship .light {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #0ff;
+  border-radius: 50%;
+  top: 15px;
+}
+#spaceship .light1 {
+  left: 10px;
+}
+#spaceship .light2 {
+  left: 25px;
+}
+#spaceship .light3 {
+  right: 25px;
+}
+#spaceship .light4 {
+  right: 10px;
+}
+@keyframes floatShip {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
 }
 
 /* ===== ASTRONAUT ===== */
@@ -182,86 +304,112 @@ body {
   position: absolute;
   bottom: 10%;
   right: 10%;
-  width: 120px;
-  height: 200px;
-  animation: float 3s ease-in-out infinite;
+  width: 140px;
+  height: 220px;
   z-index: 5;
+  cursor: pointer;
 }
-
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0); }
-}
-
 .helmet {
-  width: 80px;
-  height: 80px;
-  background: #ffffff;
+  width: 90px;
+  height: 90px;
+  background: #fff;
   border-radius: 50%;
   margin: 0 auto;
   position: relative;
-  top: 0;
 }
-
 .helmet::after {
-  content: '';
+  content: "";
   position: absolute;
-  width: 60px;
-  height: 40px;
+  width: 65px;
+  height: 45px;
   top: 20px;
-  left: 10px;
+  left: 12px;
   background: #111;
-  border-radius: 50% / 40%;
+  border-radius: 50%/40%;
 }
-
 .body {
-  width: 70px;
-  height: 90px;
+  width: 80px;
+  height: 100px;
   background: white;
   margin: 10px auto;
   border-radius: 10px;
 }
-
 .pack {
-  width: 50px;
-  height: 20px;
+  width: 55px;
+  height: 25px;
   background: #ccc;
   position: relative;
   left: 35px;
-  top: -70px;
+  top: -80px;
   border-radius: 5px;
 }
-
 .arm {
-  width: 20px;
-  height: 60px;
-  background: white;
-  position: absolute;
-  top: 90px;
-  border-radius: 10px;
-}
-
-.arm.left { left: 10px; transform: rotate(20deg); }
-.arm.right { right: 10px; transform: rotate(-20deg); }
-
-.leg {
   width: 25px;
   height: 70px;
   background: white;
   position: absolute;
-  top: 150px;
+  top: 100px;
   border-radius: 10px;
 }
+.arm.left {
+  left: 10px;
+  transform: rotate(20deg);
+}
+.arm.right {
+  right: 10px;
+  transform: rotate(-20deg);
+}
+.leg {
+  width: 30px;
+  height: 80px;
+  background: white;
+  position: absolute;
+  top: 170px;
+  border-radius: 10px;
+}
+.leg.left {
+  left: 25px;
+  transform: rotate(10deg);
+}
+.leg.right {
+  right: 25px;
+  transform: rotate(-10deg);
+}
 
-.leg.left { left: 25px; transform: rotate(10deg); }
-.leg.right { right: 25px; transform: rotate(-10deg); }
+/* ===== SCAN OVERLAY ===== */
+#scanOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 255, 255, 0.1);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 9;
+  transition: 0.3s;
+}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 600px) {
-  .title { font-size: 2rem; }
-  .subtitle { font-size: 1rem; }
-  .mars { width: 120px; height: 120px; }
-  .astronaut { transform: scale(0.8); }
-  .meteor { transform: scale(0.8); }
+  .title {
+    font-size: 2rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .mars {
+    width: 200px;
+    height: 200px;
+  }
+  .astronaut {
+    transform: scale(0.8);
+  }
+  .meteor {
+    transform: scale(0.8);
+  }
+  #spaceship {
+    width: 80px;
+    height: 40px;
+  }
 }
