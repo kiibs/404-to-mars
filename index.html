@@ -1,105 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>404 – Lost in Space</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <canvas id="stars"></canvas>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 – Lost in Space</title>
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+  </head>
+  <body>
+    <canvas id="stars"></canvas>
 
-  <!-- Mars (CSS-drawn) -->
-  <div class="mars" id="mars">
-    <div class="crater c1"></div>
-    <div class="crater c2"></div>
-    <div class="crater c3"></div>
-  </div>
-
-  <!-- Meteor (CSS-drawn) -->
-  <div class="meteor" id="meteor">
-    <div class="fire f1"></div>
-    <div class="fire f2"></div>
-    <div class="fire f3"></div>
-  </div>
-
-  <!-- Explosion (CSS animated) -->
-  <div class="explosion" id="explosion"></div>
-
-  <!-- Astronaut (CSS-drawn) -->
-  <div class="astronaut">
-    <div class="helmet"></div>
-    <div class="body"></div>
-    <div class="pack"></div>
-    <div class="arm left"></div>
-    <div class="arm right"></div>
-    <div class="leg left"></div>
-    <div class="leg right"></div>
-  </div>
-
-  <div class="content">
-    <h1 class="title">404 – Destination Not Found</h1>
-    <p class="subtitle">Our astronaut tried to reach Mars… but something wiped it out.</p>
-
-    <div class="buttons">
-      <a href="/" class="btn primary">Return to Home Base</a>
-      <button class="btn secondary" id="retry">Rescan Space</button>
+    <!-- Mars (CSS-drawn) -->
+    <div class="mars" id="mars">
+      <div class="crater c1"></div>
+      <div class="crater c2"></div>
+      <div class="crater c3"></div>
     </div>
-  </div>
 
-  <script>
-    /* STARFIELD */
-    const canvas = document.getElementById('stars');
-    const c = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    <!-- Meteor (CSS-drawn) -->
+    <div class="meteor" id="meteor">
+      <div class="fire f1"></div>
+      <div class="fire f2"></div>
+      <div class="fire f3"></div>
+    </div>
 
-    let stars = [];
-    for (let i = 0; i < 200; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 2,
-        s: Math.random() * 0.5 + 0.2
-      });
-    }
+    <!-- Explosion (CSS animated) -->
+    <div class="explosion" id="explosion"></div>
 
-    function drawStars() {
-      c.clearRect(0, 0, canvas.width, canvas.height);
-      for (let star of stars) {
-        c.beginPath();
-        c.arc(star.x, star.y, star.r, 0, Math.PI * 2);
-        c.fillStyle = 'white';
-        c.fill();
-        star.y += star.s;
-        if (star.y > canvas.height) star.y = 0;
+    <!-- Astronaut (CSS-drawn) -->
+    <div class="astronaut">
+      <div class="helmet"></div>
+      <div class="body"></div>
+      <div class="pack"></div>
+      <div class="arm left"></div>
+      <div class="arm right"></div>
+      <div class="leg left"></div>
+      <div class="leg right"></div>
+    </div>
+
+    <div class="content">
+      <h1 class="title">404 – Destination Not Found</h1>
+      <p class="subtitle">
+        Our astronaut tried to reach Mars… but something wiped it out.
+      </p>
+
+      <div class="buttons">
+        <a href="/" class="btn primary">Return to Home Base</a>
+        <button class="btn secondary" id="retry">Rescan Space</button>
+      </div>
+    </div>
+
+    <script>
+      /* STARFIELD */
+      const canvas = document.getElementById("stars");
+      const c = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      let stars = [];
+      for (let i = 0; i < 200; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 2,
+          s: Math.random() * 0.5 + 0.2,
+        });
       }
-      requestAnimationFrame(drawStars);
-    }
-    drawStars();
 
-    /* IMPACT LOGIC */
-    const mars = document.getElementById('mars');
-    const meteor = document.getElementById('meteor');
-    const explosion = document.getElementById('explosion');
-    const retry = document.getElementById('retry');
+      function drawStars() {
+        c.clearRect(0, 0, canvas.width, canvas.height);
+        for (let star of stars) {
+          c.beginPath();
+          c.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+          c.fillStyle = "white";
+          c.fill();
+          star.y += star.s;
+          if (star.y > canvas.height) star.y = 0;
+        }
+        requestAnimationFrame(drawStars);
+      }
+      drawStars();
 
-    function triggerImpact() {
-      meteor.classList.add('fall');
-      setTimeout(() => {
-        mars.classList.add('explode');
-        explosion.classList.add('show');
-      }, 1500);
-    }
+      /* IMPACT LOGIC */
+      const mars = document.getElementById("mars");
+      const meteor = document.getElementById("meteor");
+      const explosion = document.getElementById("explosion");
+      const retry = document.getElementById("retry");
 
-    retry.onclick = () => {
-      meteor.classList.remove('fall');
-      mars.classList.remove('explode');
-      explosion.classList.remove('show');
-      setTimeout(triggerImpact, 700);
-    };
+      function triggerImpact() {
+        meteor.classList.add("fall");
+        setTimeout(() => {
+          mars.classList.add("explode");
+          explosion.classList.add("show");
+        }, 1500);
+      }
 
-    window.onload = () => setTimeout(triggerImpact, 1200);
-  </script>
-</body>
+      retry.onclick = () => {
+        meteor.classList.remove("fall");
+        mars.classList.remove("explode");
+        explosion.classList.remove("show");
+        setTimeout(triggerImpact, 700);
+      };
+
+      window.onload = () => setTimeout(triggerImpact, 1200);
+    </script>
+  </body>
 </html>
