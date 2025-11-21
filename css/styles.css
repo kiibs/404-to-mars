@@ -414,138 +414,60 @@ body {
   }
 }
 
-/* ===== MOBILE OPTIMIZATION ===== */
+/* ===== MOBILE NAVIGATION  ===== */
 @media (max-width: 600px) {
-  /* Texto */
-  .title {
-    font-size: 1.8rem;
-  }
-  .subtitle {
-    font-size: 1rem;
-    margin-bottom: 20px;
-  }
-
-  /* Planeta */
-  .mars {
-    width: 180px;
-    height: 180px;
-    bottom: 10%;
-    left: 10%;
-  }
-  .crater.c1 {
-    width: 35px;
-    height: 35px;
-    top: 25%;
-    left: 20%;
-  }
-  .crater.c2 {
-    width: 25px;
-    height: 25px;
-    top: 65%;
-    left: 55%;
-  }
-  .crater.c3 {
-    width: 30px;
-    height: 30px;
-    top: 15%;
-    left: 65%;
-  }
-
-  /* Astronauta */
-  .astronaut {
-    width: 100px;
-    height: 160px;
-    bottom: 5%;
-    right: 5%;
-  }
-  .helmet {
-    width: 60px;
-    height: 60px;
-  }
-  .helmet::after {
-    width: 45px;
-    height: 30px;
-    left: 7px;
-    top: 15px;
-  }
-  .body {
-    width: 60px;
-    height: 70px;
-  }
-  .pack {
-    width: 40px;
-    height: 20px;
-    top: -55px;
-    left: 30px;
-  }
-  .arm {
-    width: 15px;
-    height: 50px;
-  }
-  .arm.left {
-    left: 5px;
-  }
-  .arm.right {
-    right: 5px;
-  }
-  .leg {
-    width: 20px;
-    height: 55px;
-  }
-  .leg.left {
-    left: 15px;
-  }
-  .leg.right {
-    right: 15px;
-  }
-
-  /* Meteor */
-  .meteor {
-    width: 40px;
-    height: 40px;
-  }
-
-  /* Spaceship */
   #spaceship {
     width: 80px;
     height: 40px;
     top: 15%;
     left: 15%;
-  }
-  #spaceship .body {
-    height: 25px;
-  }
-  #spaceship .cockpit {
-    width: 30px;
-    height: 20px;
-    left: 25px;
-    top: -3px;
-  }
-  #spaceship .wing-left,
-  #spaceship .wing-right {
-    width: 20px;
-    height: 6px;
-  }
-  #spaceship .engine {
-    width: 15px;
-    height: 10px;
-  }
-  #spaceship .engine::after {
-    width: 6px;
-    height: 12px;
-  }
-  #spaceship .light {
-    width: 4px;
-    height: 4px;
+    transform: scale(0.7); /* escala proporcional */
   }
 
-  /* Buttons */
-  .buttons {
-    flex-direction: column;
-    gap: 15px;
+  #spaceship .body {
+    width: 100%;
+    height: 50%;
+    top: 25%;
+    left: 0;
   }
-  .btn {
-    font-size: 0.9rem;
-    padding: 10px 18px;
+
+  #spaceship .cockpit {
+    width: 30%;
+    height: 50%;
+    top: 0;
+    left: 35%;
+  }
+
+  #spaceship .wing-left {
+    width: 25%;
+    height: 20%;
+    top: 25%;
+    left: -20%;
+  }
+
+  #spaceship .wing-right {
+    width: 25%;
+    height: 20%;
+    top: 25%;
+    right: -20%;
+  }
+
+  #spaceship .engine {
+    width: 20%;
+    height: 25%;
+    bottom: 5%;
+    left: 40%;
+  }
+
+  #spaceship .engine::after {
+    width: 10px;
+    height: 20px;
+    top: 100%;
+    left: 50%;
+  }
+
+  #spaceship .light {
+    width: 5px;
+    height: 5px;
   }
 }
